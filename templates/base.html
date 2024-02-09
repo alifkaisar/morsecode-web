@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='image/morse-code-svgrepo-com.svg') }}">
+    <style>
+        .row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+        .form-label {
+            font-weight: bold;
+        }
+    </style>
+    {% block style %}
+        {{ bootstrap.load_css() }}
+    {% endblock %}
+</head>
+<body>
+    {% block content %}{% endblock %}
+    {% block script %}
+        {{ bootstrap.load_js() }}
+    {% endblock %}
+</body>
+</html>

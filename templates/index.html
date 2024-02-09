@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% from "bootstrap5/form.html" import render_field %}
+{% block title %}Morse Encoding{%endblock%}
+{% block content %}
+<nav class="navbar">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{{ url_for('home_page') }}">
+      <img src="{{ url_for('static', filename='image/morse-code-svgrepo-com.svg') }}" alt="Logo" width="30" height="24"
+           class="d-inline-block align-text-top">
+      Morse Decoder
+    </a>
+  </div>
+</nav>
+<div class="container text-center">
+  <div class="row">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <form action="/" method="POST">
+        {{ form.csrf_token }}
+        {{ render_field(form.text) }}
+        {% if submit: %}
+          <p>{{ decode }}</p>
+        {% endif %}
+        {{ render_field(form.button) }}
+      </form>
+    </div>
+  </div>
+  <p class="position-absolute bottom-20 start-50 translate-middle-x fs-6">
+    © Created By
+    <a href="https://www.linkedin.com/in/muhammad-alif-kaisar-702376259/" class="text-reset">Alif Kaisar</a>
+  </p>
+</div>
+{% endblock %}
